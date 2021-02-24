@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="prisonerManagementSystemModelStoreContainer" CdmEntityContainer="prisonerManagementSystemEntities">
+    <EntitySetMapping Name="asset">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.asset">
+        <MappingFragment StoreEntitySet="asset">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="worth" ColumnName="worth" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficiary">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.beneficiary">
+        <MappingFragment StoreEntitySet="beneficiary">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="complaint">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.complaint">
+        <MappingFragment StoreEntitySet="complaint">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+          <ScalarProperty Name="resolved_date" ColumnName="resolved_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="court_officer_id" ColumnName="court_officer_id" />
+          <ScalarProperty Name="jail_officer_id" ColumnName="jail_officer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="court_officer">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.court_officer">
+        <MappingFragment StoreEntitySet="court_officer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+          <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+          <ScalarProperty Name="in_service" ColumnName="in_service" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courts_visited">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.courts_visited">
+        <MappingFragment StoreEntitySet="courts_visited">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="court_name" ColumnName="court_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="visit_date" ColumnName="visit_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crime_record">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.crime_record">
+        <MappingFragment StoreEntitySet="crime_record">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="crime_date" ColumnName="crime_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="punishment" ColumnName="punishment" />
+          <ScalarProperty Name="imprisonment_date" ColumnName="imprisonment_date" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imprisonment_record">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.imprisonment_record">
+        <MappingFragment StoreEntitySet="imprisonment_record">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="jail_name" ColumnName="jail_name" />
+          <ScalarProperty Name="imprisonment_duration" ColumnName="imprisonment_duration" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="reason_of_transfer" ColumnName="reason_of_transfer" />
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+          <ScalarProperty Name="exit_date" ColumnName="exit_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jail_officer">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.jail_officer">
+        <MappingFragment StoreEntitySet="jail_officer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+          <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+          <ScalarProperty Name="in_service" ColumnName="in_service" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jailer">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.jailer">
+        <MappingFragment StoreEntitySet="jailer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="appointment_date" ColumnName="appointment_date" />
+          <ScalarProperty Name="retirement_date" ColumnName="retirement_date" />
+          <ScalarProperty Name="in_service" ColumnName="in_service" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prisoner">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.prisoner">
+        <MappingFragment StoreEntitySet="prisoner">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="father_name" ColumnName="father_name" />
+          <ScalarProperty Name="punishment" ColumnName="punishment" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="imprisonment_duration" ColumnName="imprisonment_duration" />
+          <ScalarProperty Name="cell_type" ColumnName="cell_type" />
+          <ScalarProperty Name="allocated_meeting_time" ColumnName="allocated_meeting_time" />
+          <ScalarProperty Name="available_meeting_time" ColumnName="available_meeting_time" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="stipend" ColumnName="stipend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prisoner_transfer_request">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.prisoner_transfer_request">
+        <MappingFragment StoreEntitySet="prisoner_transfer_request">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="from_jail" ColumnName="from_jail" />
+          <ScalarProperty Name="to_jail" ColumnName="to_jail" />
+          <ScalarProperty Name="reason_of_transfer" ColumnName="reason_of_transfer" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="request_date" ColumnName="request_date" />
+          <ScalarProperty Name="accept_date" ColumnName="accept_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="court_officer_id" ColumnName="court_officer_id" />
+          <ScalarProperty Name="jailer_id" ColumnName="jailer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="visitor">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.visitor">
+        <MappingFragment StoreEntitySet="visitor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="date_of_visit" ColumnName="date_of_visit" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="community_task">
+      <EntityTypeMapping TypeName="prisonerManagementSystemModel.community_task">
+        <MappingFragment StoreEntitySet="community_task">
+          <ScalarProperty Name="prisonerid" ColumnName="prisonerid" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="task" ColumnName="task" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

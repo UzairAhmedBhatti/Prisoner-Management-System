@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="movieDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="actor">
+    <Key>
+      <PropertyRef Name="actorid" />
+    </Key>
+    <Property Name="actorid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="actorname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imageurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="actorInMovie" Relationship="Self.FK__actorInMo__actor__1DE57479" FromRole="actor" ToRole="actorInMovie" />
+  </EntityType>
+  <EntityType Name="actorInMovie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="actorid" Type="Int32" />
+    <Property Name="movieid" Type="Int32" />
+    <NavigationProperty Name="actor" Relationship="Self.FK__actorInMo__actor__1DE57479" FromRole="actorInMovie" ToRole="actor" />
+    <NavigationProperty Name="movies" Relationship="Self.FK__actorInMo__movie__1ED998B2" FromRole="actorInMovie" ToRole="movies" />
+  </EntityType>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminid" />
+    </Key>
+    <Property Name="adminid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adminname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="commentid" />
+    </Key>
+    <Property Name="commentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="movieid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="commentstatement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="movies" Relationship="Self.FK__comment__movieid__25869641" FromRole="comment" ToRole="movies" />
+    <NavigationProperty Name="user" Relationship="Self.FK__comment__userid__267ABA7A" FromRole="comment" ToRole="user" />
+  </EntityType>
+  <EntityType Name="genre">
+    <Key>
+      <PropertyRef Name="genreid" />
+    </Key>
+    <Property Name="genreid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="genrename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="movies" Relationship="Self.FK__movies__genre__1B0907CE" FromRole="genre" ToRole="movies" />
+  </EntityType>
+  <EntityType Name="movies">
+    <Key>
+      <PropertyRef Name="movieid" />
+    </Key>
+    <Property Name="movieid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="release_date" Type="DateTime" Precision="0" />
+    <Property Name="duration" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="directorname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="genre" Type="Int32" />
+    <Property Name="pictureurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="trailerurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="actorInMovie" Relationship="Self.FK__actorInMo__movie__1ED998B2" FromRole="movies" ToRole="actorInMovie" />
+    <NavigationProperty Name="comment" Relationship="Self.FK__comment__movieid__25869641" FromRole="movies" ToRole="comment" />
+    <NavigationProperty Name="genre1" Relationship="Self.FK__movies__genre__1B0907CE" FromRole="movies" ToRole="genre" />
+    <NavigationProperty Name="rating" Relationship="Self.FK__rating__movieid__21B6055D" FromRole="movies" ToRole="rating" />
+    <NavigationProperty Name="watch_list" Relationship="Self.FK__watch_lis__movie__2A4B4B5E" FromRole="movies" ToRole="watch_list" />
+  </EntityType>
+  <EntityType Name="rating">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="movieid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="stars" Type="Double" />
+    <NavigationProperty Name="movies" Relationship="Self.FK__rating__movieid__21B6055D" FromRole="rating" ToRole="movies" />
+    <NavigationProperty Name="user" Relationship="Self.FK__rating__userid__22AA2996" FromRole="rating" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contactnumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="agegroup" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="comment" Relationship="Self.FK__comment__userid__267ABA7A" FromRole="user" ToRole="comment" />
+    <NavigationProperty Name="rating" Relationship="Self.FK__rating__userid__22AA2996" FromRole="user" ToRole="rating" />
+    <NavigationProperty Name="watch_list" Relationship="Self.FK__watch_lis__useri__29572725" FromRole="user" ToRole="watch_list" />
+  </EntityType>
+  <EntityType Name="watch_list">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="movieid" Type="Int32" />
+    <NavigationProperty Name="movies" Relationship="Self.FK__watch_lis__movie__2A4B4B5E" FromRole="watch_list" ToRole="movies" />
+    <NavigationProperty Name="user" Relationship="Self.FK__watch_lis__useri__29572725" FromRole="watch_list" ToRole="user" />
+  </EntityType>
+  <Association Name="FK__actorInMo__actor__1DE57479">
+    <End Role="actor" Type="Self.actor" Multiplicity="0..1" />
+    <End Role="actorInMovie" Type="Self.actorInMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actor">
+        <PropertyRef Name="actorid" />
+      </Principal>
+      <Dependent Role="actorInMovie">
+        <PropertyRef Name="actorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__actorInMo__movie__1ED998B2">
+    <End Role="movies" Type="Self.movies" Multiplicity="0..1" />
+    <End Role="actorInMovie" Type="Self.actorInMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movies">
+        <PropertyRef Name="movieid" />
+      </Principal>
+      <Dependent Role="actorInMovie">
+        <PropertyRef Name="movieid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__movieid__25869641">
+    <End Role="movies" Type="Self.movies" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movies">
+        <PropertyRef Name="movieid" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="movieid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__userid__267ABA7A">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__movies__genre__1B0907CE">
+    <End Role="genre" Type="Self.genre" Multiplicity="0..1" />
+    <End Role="movies" Type="Self.movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genreid" />
+      </Principal>
+      <Dependent Role="movies">
+        <PropertyRef Name="genre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rating__movieid__21B6055D">
+    <End Role="movies" Type="Self.movies" Multiplicity="0..1" />
+    <End Role="rating" Type="Self.rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movies">
+        <PropertyRef Name="movieid" />
+      </Principal>
+      <Dependent Role="rating">
+        <PropertyRef Name="movieid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__watch_lis__movie__2A4B4B5E">
+    <End Role="movies" Type="Self.movies" Multiplicity="0..1" />
+    <End Role="watch_list" Type="Self.watch_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movies">
+        <PropertyRef Name="movieid" />
+      </Principal>
+      <Dependent Role="watch_list">
+        <PropertyRef Name="movieid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rating__userid__22AA2996">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="rating" Type="Self.rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="rating">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__watch_lis__useri__29572725">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="watch_list" Type="Self.watch_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="watch_list">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="movieDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="actor" EntityType="Self.actor" />
+    <EntitySet Name="actorInMovie" EntityType="Self.actorInMovie" />
+    <EntitySet Name="admin" EntityType="Self.admin" />
+    <EntitySet Name="comment" EntityType="Self.comment" />
+    <EntitySet Name="genre" EntityType="Self.genre" />
+    <EntitySet Name="movies" EntityType="Self.movies" />
+    <EntitySet Name="rating" EntityType="Self.rating" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="watch_list" EntityType="Self.watch_list" />
+    <AssociationSet Name="FK__actorInMo__actor__1DE57479" Association="Self.FK__actorInMo__actor__1DE57479">
+      <End Role="actor" EntitySet="actor" />
+      <End Role="actorInMovie" EntitySet="actorInMovie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__actorInMo__movie__1ED998B2" Association="Self.FK__actorInMo__movie__1ED998B2">
+      <End Role="movies" EntitySet="movies" />
+      <End Role="actorInMovie" EntitySet="actorInMovie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__movieid__25869641" Association="Self.FK__comment__movieid__25869641">
+      <End Role="movies" EntitySet="movies" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__userid__267ABA7A" Association="Self.FK__comment__userid__267ABA7A">
+      <End Role="user" EntitySet="user" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__movies__genre__1B0907CE" Association="Self.FK__movies__genre__1B0907CE">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="movies" EntitySet="movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rating__movieid__21B6055D" Association="Self.FK__rating__movieid__21B6055D">
+      <End Role="movies" EntitySet="movies" />
+      <End Role="rating" EntitySet="rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK__watch_lis__movie__2A4B4B5E" Association="Self.FK__watch_lis__movie__2A4B4B5E">
+      <End Role="movies" EntitySet="movies" />
+      <End Role="watch_list" EntitySet="watch_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rating__userid__22AA2996" Association="Self.FK__rating__userid__22AA2996">
+      <End Role="user" EntitySet="user" />
+      <End Role="rating" EntitySet="rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK__watch_lis__useri__29572725" Association="Self.FK__watch_lis__useri__29572725">
+      <End Role="user" EntitySet="user" />
+      <End Role="watch_list" EntitySet="watch_list" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
